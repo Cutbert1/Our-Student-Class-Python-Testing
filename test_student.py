@@ -1,5 +1,6 @@
 import unittest
 from student import Student
+from datetime import timedelta
 
 class TestStudent(unittest.TestCase):
 
@@ -37,13 +38,20 @@ class TestStudent(unittest.TestCase):
         print("test_email")
         self.assertEqual(self.student.email, "john.doe@email.com")
     
-    # test for a function called alert_santa to change the naughty_list property to True.
+    # test for a function called test_alert_santa to change the naughty_list property to True.
     def test_alert_santa(self):
         print("test_alert_santa")
         self.student.alert_santa()
         
         self.assertTrue(self.student.naughty_list)
 
+    # test a function called test_apply_extention offered to student to help them finish the course
+    def test_apply_extention(self):
+        old_end_date = self.student.end_date
+        self.student.apply_extension(5)
+
+        self.assertEqual(self.student.end_date, old_end_date + timedelta(days=5))
+        
 
 if __name__ == "__main__":
     unittest.main()
