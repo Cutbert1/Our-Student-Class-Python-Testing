@@ -9,6 +9,11 @@ class TestStudent(unittest.TestCase):
     def test_full_name(self):
         student = Student("John", "Doe")
         self.assertEqual(student.full_name, "John Doe")
+
+    # test read-only method that will return a student’s email address
+    def test_email(self):
+        student = Student("John", "Doe")
+        self.assertEqual(student.email, "john.doe@email.com")
     
     # test for a function called alert_santa to change the naughty_list property to True.
     def test_alert_santa(self):
